@@ -11,9 +11,7 @@ describe('RecommendationType Component', () => {
       />
     );
 
-
     expect(screen.getByText('Tipo de Recomendação:')).toBeInTheDocument();
-
 
     expect(screen.getByLabelText('Produto Único')).toBeInTheDocument();
     expect(screen.getByLabelText('Múltiplos Produtos')).toBeInTheDocument();
@@ -46,10 +44,8 @@ describe('RecommendationType Component', () => {
 
     const multipleRadio = screen.getByLabelText('Múltiplos Produtos');
 
-
     fireEvent.click(multipleRadio);
 
-    
     expect(handleChange).toHaveBeenCalledWith('MultipleProducts');
   });
 });

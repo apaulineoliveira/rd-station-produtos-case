@@ -8,9 +8,7 @@ describe('Features Component', () => {
   it('renderiza corretamente com as funcionalidades', () => {
     render(<Features features={mockFeatures} onFeatureChange={() => {}} />);
 
-
     expect(screen.getByText('Funcionalidades:')).toBeInTheDocument();
-
 
     mockFeatures.forEach((feature) => {
       expect(screen.getByText(feature)).toBeInTheDocument();
@@ -30,11 +28,9 @@ describe('Features Component', () => {
 
     const checkbox = screen.getByLabelText('Notificações');
 
-
     fireEvent.click(checkbox);
     expect(handleChange).toHaveBeenCalledWith(['Notificações']);
 
-    
     fireEvent.click(checkbox);
     expect(handleChange).toHaveBeenCalledWith([]);
   });

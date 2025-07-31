@@ -3,14 +3,19 @@ import React from 'react';
 function RecommendationList({ recommendations }) {
   return (
     <div>
-      <h2 className="text-lg font-bold mb-4">Lista de Recomendações:</h2>
+      <h2 className="text-lg font-semibold text-dark mb-3">Recomendações:</h2>
 
-      {recommendations.length === 0 && <p>Nenhuma recomendação encontrada.</p>}
+      {recommendations.length === 0 && (
+        <p className="text-gray-600">Nenhuma recomendação encontrada.</p>
+      )}
 
-      <ul>
+      <ul className="space-y-3">
         {recommendations.map((recommendation, index) => (
-          <li key={index} className="mb-2">
-            {recommendation.name}
+          <li
+            key={index}
+            className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition"
+          >
+            <span className="font-medium text-gray-800">{recommendation.name}</span>
           </li>
         ))}
       </ul>

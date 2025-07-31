@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Form from './Form';
 
-// Mocks dos hooks
+
 jest.mock('../../hooks/useProducts', () => () => ({
   preferences: ['Opção A', 'Opção B'],
   features: ['Funcionalidade X', 'Funcionalidade Y'],
@@ -29,7 +29,9 @@ describe('Form Component', () => {
     expect(screen.getByText('Preferências:')).toBeInTheDocument();
     expect(screen.getByText('Funcionalidades:')).toBeInTheDocument();
     expect(screen.getByText('Tipo de Recomendação:')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /obter recomendação/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /obter recomendação/i })
+    ).toBeInTheDocument();
   });
 
   it('chama onSubmit com os dados corretos ao enviar', () => {
