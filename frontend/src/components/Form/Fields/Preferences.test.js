@@ -8,10 +8,10 @@ describe('Preferences Component', () => {
   it('renderiza corretamente com as preferências', () => {
     render(<Preferences preferences={mockPreferences} onPreferenceChange={() => {}} />);
 
-    // Verifica se o título está na tela
+    
     expect(screen.getByText('Preferências:')).toBeInTheDocument();
 
-    // Verifica se todas as opções estão presentes
+
     mockPreferences.forEach((preference) => {
       expect(screen.getByText(preference)).toBeInTheDocument();
     });
@@ -43,11 +43,11 @@ describe('Preferences Component', () => {
 
     const checkbox = screen.getByLabelText('Baixo custo');
 
-    // Marca o checkbox
+
     fireEvent.click(checkbox);
     expect(handleChange).toHaveBeenCalledWith(['Baixo custo']);
 
-    // Desmarca o checkbox
+
     fireEvent.click(checkbox);
     expect(handleChange).toHaveBeenCalledWith([]);
   });

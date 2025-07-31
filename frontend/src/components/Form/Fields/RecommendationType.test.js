@@ -11,10 +11,10 @@ describe('RecommendationType Component', () => {
       />
     );
 
-    // Verifica o título
+
     expect(screen.getByText('Tipo de Recomendação:')).toBeInTheDocument();
 
-    // Verifica os textos dos radios
+
     expect(screen.getByLabelText('Produto Único')).toBeInTheDocument();
     expect(screen.getByLabelText('Múltiplos Produtos')).toBeInTheDocument();
   });
@@ -46,10 +46,10 @@ describe('RecommendationType Component', () => {
 
     const multipleRadio = screen.getByLabelText('Múltiplos Produtos');
 
-    // Simula clique no rádio
+
     fireEvent.click(multipleRadio);
 
-    // Verifica se a função foi chamada com o valor esperado
+    
     expect(handleChange).toHaveBeenCalledWith('MultipleProducts');
   });
 });

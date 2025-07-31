@@ -15,7 +15,7 @@ function Form({ onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (onSubmit) {
-      onSubmit(formData); // envia os dados para o App
+      onSubmit(formData); 
     }
   };
 
