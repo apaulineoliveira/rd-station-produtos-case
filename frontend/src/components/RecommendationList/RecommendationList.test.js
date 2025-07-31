@@ -11,10 +11,10 @@ describe('RecommendationList Component', () => {
 
     render(<RecommendationList recommendations={mockRecommendations} />);
 
-    // Título
+
     expect(screen.getByText('Lista de Recomendações:')).toBeInTheDocument();
 
-    // Itens da lista
+    
     expect(screen.getByText('Produto 1')).toBeInTheDocument();
     expect(screen.getByText('Produto 2')).toBeInTheDocument();
   });

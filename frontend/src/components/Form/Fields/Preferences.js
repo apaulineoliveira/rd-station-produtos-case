@@ -8,7 +8,6 @@ function Preferences({
 }) {
   const [currentPreferences, setCurrentPreferences] = useState(selectedPreferences);
 
-  // Sincroniza o estado inicial com o prop
   useEffect(() => {
     setCurrentPreferences(selectedPreferences);
   }, [selectedPreferences]);
