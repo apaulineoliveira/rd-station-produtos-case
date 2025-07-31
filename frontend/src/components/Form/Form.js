@@ -15,34 +15,31 @@ function Form({ onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (onSubmit) {
-      onSubmit(formData); 
+      onSubmit(formData);
     }
   };
 
   return (
     <form
-      className="max-w-md p-4 mx-auto bg-white rounded-lg shadow-md"
+      className="p-6 bg-white rounded-xl shadow-lg space-y-6"
       onSubmit={handleSubmit}
-    ><Preferences
-    preferences={preferences}
-    selectedPreferences={formData.selectedPreferences}
-    onPreferenceChange={(sel) =>
-      handleChange('selectedPreferences', sel)
-    }
-  />
-  <Features
-    features={features}
-    selectedFeatures={formData.selectedFeatures}
-    onFeatureChange={(sel) =>
-      handleChange('selectedFeatures', sel)
-    }
-  />
-  <RecommendationType
-    selectedRecommendationType={formData.selectedRecommendationType}
-    onRecommendationTypeChange={(sel) =>
-      handleChange('selectedRecommendationType', sel)
-    }
-  />
+    >
+      <Preferences
+        preferences={preferences}
+        selectedPreferences={formData.selectedPreferences}
+        onPreferenceChange={(sel) => handleChange('selectedPreferences', sel)}
+      />
+      <Features
+        features={features}
+        selectedFeatures={formData.selectedFeatures}
+        onFeatureChange={(sel) => handleChange('selectedFeatures', sel)}
+      />
+      <RecommendationType
+        selectedRecommendationType={formData.selectedRecommendationType}
+        onRecommendationTypeChange={(sel) =>
+          handleChange('selectedRecommendationType', sel)
+        }
+      />
 
       <SubmitButton text="Obter recomendação" />
     </form>

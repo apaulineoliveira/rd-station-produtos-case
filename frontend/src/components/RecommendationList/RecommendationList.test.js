@@ -11,17 +11,15 @@ describe('RecommendationList Component', () => {
 
     render(<RecommendationList recommendations={mockRecommendations} />);
 
-
-    expect(screen.getByText('Lista de Recomendações:')).toBeInTheDocument();
-
-    
+    expect(screen.getByText('Recomendações:')).toBeInTheDocument();
     expect(screen.getByText('Produto 1')).toBeInTheDocument();
     expect(screen.getByText('Produto 2')).toBeInTheDocument();
   });
 
-  it('exibe mensagem quando não há recomendações', () => {
+  it('não renderiza o título quando não há recomendações', () => {
     render(<RecommendationList recommendations={[]} />);
 
+    expect(screen.queryByText('Recomendações:')).not.toBeInTheDocument();
     expect(screen.getByText('Nenhuma recomendação encontrada.')).toBeInTheDocument();
   });
 });

@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Checkbox from '../../shared/Checkbox';
 
-function Preferences({
-  preferences,
-  selectedPreferences = [],
-  onPreferenceChange,
-}) {
+function Preferences({ preferences, selectedPreferences = [], onPreferenceChange }) {
   const [currentPreferences, setCurrentPreferences] = useState(selectedPreferences);
 
   useEffect(() => {
@@ -22,16 +18,16 @@ function Preferences({
   };
 
   return (
-    <div className="mb-4">
-      <h2 className="mb-2 text-lg font-bold">Preferências:</h2>
-      <ul>
+    <div className="mb-6">
+      <h2 className="text-lg font-semibold text-dark mb-3">Preferências:</h2>
+      <ul className="space-y-2">
         {preferences.map((preference) => (
-          <li key={preference} className="mb-2">
+          <li key={preference}>
             <Checkbox
               value={preference}
               checked={currentPreferences.includes(preference)}
               onChange={() => handlePreferenceChange(preference)}
-              className="text-blue-500"
+              className="text-primary"
             >
               {preference}
             </Checkbox>

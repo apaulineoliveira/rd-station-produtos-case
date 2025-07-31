@@ -12,10 +12,13 @@ const recommendationService = {
       const prefMatches = product.preferences.filter((p) =>
         selectedPreferences.includes(p)
       ).length;
+
       const featMatches = product.features.filter((f) =>
         selectedFeatures.includes(f)
       ).length;
+
       const score = prefMatches + featMatches;
+
       return { ...product, score };
     });
 
@@ -26,6 +29,7 @@ const recommendationService = {
         }
         return acc;
       }, null);
+
       return bestProduct ? [bestProduct] : [];
     }
 
