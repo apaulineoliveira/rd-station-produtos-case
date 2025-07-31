@@ -1,9 +1,4 @@
 
-
-### A aplicação está disponível em:  
-🔗 [https://produtosrdstationcase.netlify.app](https://produtosrdstationcase.netlify.app)
-
-
 <br>
 
 # Teste Técnico - Recomendador de Produtos RD Station
