@@ -1,14 +1,14 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Form from './Form';
+import Form from '../Form';
 
 
-jest.mock('../../hooks/useProducts', () => () => ({
+jest.mock('../../../hooks/useProducts', () => () => ({
   preferences: ['Opção A', 'Opção B'],
   features: ['Funcionalidade X', 'Funcionalidade Y'],
 }));
 
-jest.mock('../../hooks/useForm', () => () => {
+jest.mock('../../../hooks/useForm', () => () => {
   const formData = {
     selectedPreferences: [],
     selectedFeatures: [],

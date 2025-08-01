@@ -4,6 +4,7 @@ import { SubmitButton } from './SubmitButton';
 import useProducts from '../../hooks/useProducts';
 import useForm from '../../hooks/useForm';
 
+
 function Form({ onSubmit }) {
   const { preferences, features } = useProducts();
   const { formData, handleChange } = useForm({

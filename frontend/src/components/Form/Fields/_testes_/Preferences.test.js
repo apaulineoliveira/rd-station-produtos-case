@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Preferences from './Preferences';
+import Preferences from '../Preferences';
 
 const mockPreferences = ['Alta performance', 'Baixo custo', 'Sustentável'];
 

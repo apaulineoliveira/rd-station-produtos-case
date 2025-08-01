@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, act, fireEvent } from '@testing-library/react';
-import TooltipCompact from './TooltipCompact';
+import TooltipCompact from '../TooltipCompact';
+
 
 jest.useFakeTimers();
 
