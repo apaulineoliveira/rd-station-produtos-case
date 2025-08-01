@@ -1,40 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import Checkbox from '../../shared/Checkbox';
 
-function Preferences({ preferences, selectedPreferences = [], onPreferenceChange }) {
-  const [currentPreferences, setCurrentPreferences] = useState(selectedPreferences);
+function Preferences({
+  preferences = [],
+  selectedPreferences = [],
+  onPreferenceChange,
+}) {
+  const [selectedPreferenceList, setSelectedPreferenceList] = useState(selectedPreferences);
 
   useEffect(() => {
-    setCurrentPreferences(selectedPreferences);
+    setSelectedPreferenceList(selectedPreferences);
   }, [selectedPreferences]);
 
-  const handlePreferenceChange = (preference) => {
-    const updated = currentPreferences.includes(preference)
-      ? currentPreferences.filter((p) => p !== preference)
-      : [...currentPreferences, preference];
+  const togglePreferenceSelection = (selectedPreference) => {
+    const updatedPreferenceList = selectedPreferenceList.includes(selectedPreference)
+      ? selectedPreferenceList.filter(
+          (currentPreference) => currentPreference !== selectedPreference
+        )
+      : [...selectedPreferenceList, selectedPreference];
 
-    setCurrentPreferences(updated);
-    onPreferenceChange(updated);
+    setSelectedPreferenceList(updatedPreferenceList);
+    onPreferenceChange(updatedPreferenceList);
   };
 
   return (
-    <div className="mb-6">
+    <section className="mb-6">
       <h2 className="text-lg font-semibold text-dark mb-3">Preferências:</h2>
       <ul className="space-y-2">
-        {preferences.map((preference) => (
-          <li key={preference}>
+        {preferences.map((preferenceName, index) => (
+          <li key={index}>
             <Checkbox
-              value={preference}
-              checked={currentPreferences.includes(preference)}
-              onChange={() => handlePreferenceChange(preference)}
+              value={preferenceName}
+              checked={selectedPreferenceList.includes(preferenceName)}
+              onChange={() => togglePreferenceSelection(preferenceName)}
               className="text-primary"
             >
-              {preference}
+              {preferenceName}
             </Checkbox>
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
 
