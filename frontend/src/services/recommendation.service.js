@@ -1,41 +1,48 @@
 const recommendationService = {
-  getRecommendations: (formData = {}, products = []) => {
+  getRecommendations: (formData = {}, allProducts = []) => {
     const {
       selectedPreferences = [],
       selectedFeatures = [],
       selectedRecommendationType = '',
     } = formData;
 
-    if (!products.length) return [];
+    if (allProducts.length === 0) return [];
 
-    const scored = products.map((product) => {
-      const prefMatches = product.preferences.filter((p) =>
-        selectedPreferences.includes(p)
+    const productsWithScore = allProducts.map((product) => {
+      const preferenceMatches = product.preferences.filter((preference) =>
+        selectedPreferences.includes(preference)
       ).length;
 
-      const featMatches = product.features.filter((f) =>
-        selectedFeatures.includes(f)
+      const featureMatches = product.features.filter((feature) =>
+        selectedFeatures.includes(feature)
       ).length;
 
-      const score = prefMatches + featMatches;
+      const totalScore = preferenceMatches + featureMatches;
 
-      return { ...product, score };
+      return {
+        ...product,
+        score: totalScore,
+      };
     });
 
-    if (selectedRecommendationType === 'SingleProduct') {
-      const bestProduct = scored.reduce((acc, curr) => {
-        if (curr.score > 0 && (acc === null || curr.score >= acc.score)) {
-          return curr;
-        }
-        return acc;
+    const isSingleRecommendation = selectedRecommendationType === 'SingleProduct';
+
+    if (isSingleRecommendation) {
+      const bestMatchedProduct = productsWithScore.reduce((bestProduct, currentProduct) => {
+        const hasScore = currentProduct.score > 0;
+        const isBetterScore = !bestProduct || currentProduct.score >= bestProduct.score;
+
+        return hasScore && isBetterScore ? currentProduct : bestProduct;
       }, null);
 
-      return bestProduct ? [bestProduct] : [];
+      return bestMatchedProduct ? [bestMatchedProduct] : [];
     }
 
-    return scored
-      .filter((prod) => prod.score > 0)
-      .sort((a, b) => b.score - a.score);
+    const sortedRelevantProducts = productsWithScore
+      .filter((product) => product.score > 0)
+      .sort((productA, productB) => productB.score - productA.score);
+
+    return sortedRelevantProducts;
   },
 };
 
