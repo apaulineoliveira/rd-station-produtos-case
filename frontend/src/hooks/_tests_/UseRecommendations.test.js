@@ -1,8 +1,9 @@
 import { renderHook, act } from '@testing-library/react';
-import useRecommendations from './useRecommendations';
-import recommendationService from '../services/recommendation.service';
+import useRecommendations from '../useRecommendations';
+import recommendationService from '../../services/recommendation.service';
 
-jest.mock('../services/recommendation.service');
+
+jest.mock('../../services/recommendation.service');
 
 describe('useRecommendations hook', () => {
   const mockProducts = [{ id: 1 }, { id: 2 }];

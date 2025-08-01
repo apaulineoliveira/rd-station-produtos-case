@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import RecommendationType from './RecommendationType';
+import RecommendationType from '../RecommendationType';
 
 describe('RecommendationType Component', () => {
   it('renderiza corretamente com os títulos e opções', () => {

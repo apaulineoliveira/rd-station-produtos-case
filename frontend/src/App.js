@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Form from './components/Form/Form';
 import RecommendationList from './components/RecommendationList/RecommendationList';
-import TooltipCompact from './components/TooltipCompact';
+
 import useProducts from './hooks/useProducts';
+
+import TooltipCompact from './components/shared/TooltipCompact';
 import useRecommendations from './hooks/useRecommendations';
 
 function App() {

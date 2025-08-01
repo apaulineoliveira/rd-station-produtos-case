@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Features from './Features';
+import Features from '../Features';
 
 const mockFeatures = ['Login com Google', 'Notificações', 'Tema escuro'];
 

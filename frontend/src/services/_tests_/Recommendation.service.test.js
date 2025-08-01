@@ -1,5 +1,5 @@
-import recommendationService from './recommendation.service';
-import mockProducts from '../mocks/mockProducts';
+import recommendationService from '../recommendation.service';
+import mockProducts from '../../mocks/mockProducts';
 
 const getRecommendations = (formData) =>
   recommendationService.getRecommendations(formData, mockProducts);
