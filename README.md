@@ -2,7 +2,7 @@
 
 A versão homologada da aplicação está disponível publicamente no seguinte endereço:
 
-🔗 [Acessar aplicação no Netlify](https://rdstationproducts.netlify.app/)
+🔗 [Acessar aplicação com backend](https://rdstationproducts.netlify.app/)
 
 
 ## Teste Técnico - Recomendador de Produtos RD Station
