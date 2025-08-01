@@ -1,43 +1,43 @@
-import { useEffect, useState } from 'react';
-import getProducts from '../services/product.service';
+import { useEffect, useState } from 'react'
+import getProducts from '../services/product.service'
 
 const useProducts = () => {
-  const [preferences, setPreferences] = useState([]);
-  const [features, setFeatures] = useState([]);
-  const [products, setProducts] = useState([]);
+  const [preferences, setPreferences] = useState([])
+  const [features, setFeatures] = useState([])
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
-    const fetchData = async () => {
+    async function fetchProducts() {
       try {
-        const products = await getProducts();
-        const allPreferences = [];
-        const allFeatures = [];
+        const allProducts = await getProducts()
+        setProducts(allProducts)
 
-        setProducts(products);
+        const collectedPreferences = []
+        const collectedFeatures = []
 
-        products.forEach((product) => {
-          const productPreferences = product.preferences
+        allProducts.forEach(product => {
+          const randomPreferences = product.preferences
             .sort(() => Math.random() - 0.5)
-            .slice(0, 2);
-          allPreferences.push(...productPreferences);
-
-          const productFeatures = product.features
+            .slice(0, 2)
+          const randomFeatures = product.features
             .sort(() => Math.random() - 0.5)
-            .slice(0, 2);
-          allFeatures.push(...productFeatures);
-        });
+            .slice(0, 2)
 
-        setPreferences(allPreferences);
-        setFeatures(allFeatures);
+          collectedPreferences.push(...randomPreferences)
+          collectedFeatures.push(...randomFeatures)
+        })
+
+        setPreferences(collectedPreferences)
+        setFeatures(collectedFeatures)
       } catch (error) {
-        console.error('Erro ao obter os produtos:', error);
+        console.error('Erro ao carregar produtos:', error)
       }
-    };
+    }
 
-    fetchData();
-  }, []);
+    fetchProducts()
+  }, [])
 
-  return { preferences, features, products };
-};
+  return { preferences, features, products }
+}
 
-export default useProducts;
+export default useProducts
