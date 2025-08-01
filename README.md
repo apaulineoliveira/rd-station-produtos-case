@@ -5,7 +5,7 @@ A versão homologada da aplicação está disponível publicamente no seguinte e
 🔗 [Acessar aplicação no Netlify](https://rdstationproducts.netlify.app/)
 
 
-# Teste Técnico - Recomendador de Produtos RD Station
+## Teste Técnico - Recomendador de Produtos RD Station
 
 Este projeto é parte do teste técnico para a vaga de desenvolvedor front-end na RD Station. O objetivo principal é implementar a lógica de recomendação de produtos RD Station em uma aplicação web existente.
 
